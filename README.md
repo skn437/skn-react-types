@@ -69,7 +69,15 @@
 > bun add -D @best-skn/react-types
 > ```
 
-### Inside your Next.js 14 Project, use the package like this (Just an example)
+### Create a directory called `types` in the root location of your project, and create a file called `react.d.ts`, then do this
+
+> ```typescript
+> import "@best-skn/react-types";
+> ```
+
+### Check your `tsconfig.json` if `includes` property has `**/*.ts` or not otherwise the type definition file may not work
+
+### Now Inside your Next.js 14 Project, use the package like this (Just an example)
 
 #### (1) For any `Server Components` except the `Layout Server Components`, do the following
 

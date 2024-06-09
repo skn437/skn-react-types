@@ -1,12 +1,16 @@
 {
   "name": "@best-skn/react-types",
   "description": "A Simple Type Definition Extension For React.js 18",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "",
   "types": "index.d.ts",
+  "files": [
+    "index.d.ts",
+    "tsconfig.json"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/skn437/skn-react-types.git"
+    "url": "git+https://github.com/skn437/skn-react-types.git"
   },
   "keywords": [
     "react",
