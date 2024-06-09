@@ -1,0 +1,34 @@
+{
+  "name": "@best-skn/react-types",
+  "description": "A Simple Type Definition Extension For React.js 18",
+  "version": "1.0.0",
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skn437/skn-react-types.git"
+  },
+  "keywords": [
+    "react",
+    "type",
+    "library",
+    "next"
+  ],
+  "author": {
+    "name": "SKN Shukhan",
+    "email": "skn437physx@gmail.com",
+    "url": "https://skn.best"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5"
+  }
+}
