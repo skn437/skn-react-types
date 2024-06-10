@@ -18,25 +18,26 @@
 
 ## **_Details:_**
 
-### **`Children` Type**
-
-- An interface that has `children` property of type `JSX.Element | React.ReactNode`
-- For usage instruction, see `Usage` section
-
 ### **`SC/SFC` Type**
 
 - type `SC/SFC` both are for server components except for layout ones (layout.tsx in Next.js 14)
 - type `SC/SFC` both take generic type of any kinds of props
-- `SC` is used in asyncronous server components that returns a `Promise` of `JSX.Element | React.ReactNode`
-- `SFC` is used in syncronous server components that returns `JSX.Element | React.ReactNode`
+- `SC` is used in asynchronous server components that returns a `Promise` of `React.JSX.Element | React.ReactNode`
+- `SFC` is used in synchronous server components that returns `React.JSX.Element | React.ReactNode`
+- For usage instruction, see `Usage` section
+
+### **`Children` Type**
+
+- An interface that has `children` property of type `React.JSX.Element | React.ReactNode`
 - For usage instruction, see `Usage` section
 
 ### **`SLC/SFLC` Type**
 
 - type `SLC/LSFC` both are for layout server components (layout.tsx in Next.js 14)
 - type `SLC/SFLC` don't take any generics
-- `SLC` is used in asyncronous layout server components that returns a `Promise` of `JSX.Element | React.ReactNode`
-- `SFLC` is used in syncronous layout server components that returns `JSX.Element | React.ReactNode`
+- `SLC` is used in asynchronous layout server components that returns a `Promise`
+  of `React.JSX.Element | React.ReactNode`
+- `SFLC` is used in synchronous layout server components that returns `React.JSX.Element | React.ReactNode`
 - For usage instruction, see `Usage` section
 
 &nbsp;
@@ -79,35 +80,81 @@
 
 ### Now Inside your Next.js 14 Project, use the package like this (Just an example)
 
-#### (1) For any `Server Components` except the `Layout Server Components`, do the following
+#### **_`SC/SFC` Type:_**
 
-> ##### **(a) Asyncronous:**
+#### For any `Server Components` except the `Layout Server Components`, do the following
+
+> ##### **(a) Asynchronous:**
 >
-> ```tsx
+> ```typescript jsx
 > // Location: app/page.tsx
 > const Home: React.SC<unknown> = async () => {
->  return ();
+>   return (
+>     <div>something...</div>
+>   );
 > };
 >
 > export default Home;
 > ```
 >
-> ##### **(b) Syncronous:**
+> ##### **(b) Synchronous:**
 >
-> ```tsx
+> ```typescript jsx
 > // Location: app/page.tsx
 > const Home: React.SFC<unknown> = () => {
->  return ();
+>   return (
+>     <div>something...</div>
+>   );
 > };
 >
 > export default Home;
 > ```
 
-#### (2) For any `Layout Server Components`, do the following
+#### **_`Children` Type:_**
 
-> ##### **(a) Asyncronous case:**
+#### For any kinds of `Functional Component (Server or Client)`, you can use like this if it needs `children` props
+
+> ##### **(a) Server:**
 >
-> ```tsx
+> ```typescript jsx
+> import type { Children } from "react";
+>
+> const HomeComponent: React.SFC<Children> = (props) => {
+>   const { children } = props;
+>
+>   return (
+>     <div>something...</div>
+>   );
+> };
+>
+> export default HomeComponent;
+> ```
+>
+> ##### **(b) Client:**
+>
+> ```typescript jsx
+> "use client"
+>
+> import type { Children } from "react";
+>
+> const HomeComponent: React.FC<Children> = (props) => {
+>   const { children } = props;
+>
+>   return (
+>     <div>something...</div>
+>   );
+> };
+>
+> export default HomeComponent;
+> ```
+
+#### **_`SLC/SFLC` Type:_**
+
+#### For any `Layout Server Components`, do the following
+
+> ##### **(a) Asynchronous case:**
+>
+> ```typescript jsx
 > // Location: app/layout.tsx
 > const RootLayout: React.SLC = async (props) => {
 >   const { children } = props;
@@ -122,9 +169,9 @@
 > export default RootLayout;
 > ```
 >
-> ##### **(a) Syncronous case:**
+> ##### **(a) Synchronous case:**
 >
-> ```tsx
+> ```typescript jsx
 > // Location: app/layout.tsx
 > const RootLayout: React.SFLC = (props) => {
 >   const { children } = props;
@@ -137,38 +184,6 @@
 > };
 >
 > export default RootLayout;
-> ```
-
-#### (3) For any kinds of `Functional Component (Server or Client)`, you can use like this if it needs `children` props
-
-> ##### **(a) Server:**
->
-> ```tsx
-> import type { Children } from "react;
->
-> const HomeComponent: React.SFC<Children> = (props) => {
->   const { children } = props;
->
->   return ();
-> };
->
-> export default HomeComponent;
-> ```
->
-> ##### **(b) Client:**
->
-> ```tsx
-> "use client"
->
-> import type { Children } from "react;
->
-> const HomeComponent: React.FC<Children> = (props) => {
->   const { children } = props;
->
->   return ();
-> };
->
-> export default HomeComponent;
 > ```
 
 &nbsp;
