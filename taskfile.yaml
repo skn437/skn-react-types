@@ -1,0 +1,10 @@
+version: "3"
+
+dotenv:
+  - .env.task
+
+tasks:
+  publish:
+    desc: Publish to NPM
+    cmds:
+      - npm publish --access public
