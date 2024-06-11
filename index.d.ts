@@ -4,7 +4,7 @@ import React from "react";
  * SKN React Type Extension Library
  *
  * @author SKN Shukhan
- * @version 1.0.4
+ * @version 1.0.5
  * @since 2024-06-09
  */
 declare module "react" {
