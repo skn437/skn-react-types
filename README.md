@@ -26,7 +26,7 @@
 - `SFC` is used in synchronous server components that returns `React.JSX.Element | React.ReactNode`
 - For usage instruction, see `Usage` section
 
-### **`Children` Type**
+### **`ChildrenProps` Type**
 
 - An interface that has `children` property of type `React.JSX.Element | React.ReactNode`
 - For usage instruction, see `Usage` section
@@ -123,16 +123,16 @@
 > export default Home;
 > ```
 
-#### **_`Children` Type:_**
+#### **_`ChildrenProps` Type:_**
 
 #### For any kinds of `Functional Component (Server or Client)`, you can use like this if it needs `children` props
 
 > ##### **(a) Server:**
 >
 > ```typescript jsx
-> import type { Children } from "react";
+> import type { ChildrenProps } from "react";
 >
-> const HomeComponent: React.SFC<Children> = (props) => {
+> const HomeComponent: React.SFC<ChildrenProps> = (props) => {
 >   const { children } = props;
 >
 >   return (
@@ -148,9 +148,9 @@
 > ```typescript jsx
 > "use client"
 >
-> import type { Children } from "react";
+> import type { ChildrenProps } from "react";
 >
-> const HomeComponent: React.FC<Children> = (props) => {
+> const HomeComponent: React.FC<ChildrenProps> = (props) => {
 >   const { children } = props;
 >
 >   return (

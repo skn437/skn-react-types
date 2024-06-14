@@ -4,7 +4,7 @@ import React from "react";
  * SKN React Type Extension Library
  *
  * @author SKN Shukhan
- * @version 1.0.5
+ * @version 1.1.0
  * @since 2024-06-09
  */
 declare module "react" {
@@ -23,6 +23,7 @@ declare module "react" {
    * export default Home;
    * ```
    *
+   * @property props Generic type
    * @returns Promise<React.JSX.Element | React.ReactNode>
    * @since v1.0.0
    */
@@ -43,7 +44,8 @@ declare module "react" {
    * export default Home;
    * ```
    *
-   * @returns Promise<React.JSX.Element | React.ReactNode>
+   * @property props Generic type
+   * @returns React.JSX.Element | React.ReactNode
    * @since v1.0.0
    */
   type SFC<T> = (props: T) => React.JSX.Element | React.ReactNode;
@@ -56,9 +58,9 @@ declare module "react" {
    * (1) for server components,
    *
    * ```typescript jsx
-   * import type { Children } from "react;
+   * import type { ChildrenProps } from "react;
    *
-   * const HomeComponent: React.SFC<Children> = (props) => {
+   * const HomeComponent: React.SFC<ChildrenProps> = (props) => {
    *   const { children } = props;
    *
    *   return (
@@ -74,9 +76,9 @@ declare module "react" {
    * ```typescript jsx
    * "use client"
    *
-   * import type { Children } from "react;
+   * import type { ChildrenProps } from "react;
    *
-   * const HomeComponent: React.FC<Children> = (props) => {
+   * const HomeComponent: React.FC<ChildrenProps> = (props) => {
    *   const { children } = props;
    *
    *   return (
@@ -87,9 +89,9 @@ declare module "react" {
    * export default HomeComponent;
    * ```
    *
-   * @since v1.0.0
+   * @since v1.1.0
    */
-  interface Children {
+  interface ChildrenProps {
     children: React.JSX.Element | React.ReactNode;
   }
 
@@ -112,10 +114,11 @@ declare module "react" {
    * export default RootLayout;
    * ```
    *
+   * @property props interface that has `children` property of type `React.JSX.Element | React.ReactNode`
    * @returns Promise<React.JSX.Element | React.ReactNode>
    * @since v1.0.0
    */
-  type SLC = (props: Children) => Promise<React.JSX.Element | React.ReactNode>;
+  type SLC = (props: ChildrenProps) => Promise<React.JSX.Element | React.ReactNode>;
 
   /**
    * Next.js Server Functional Layout Component that returns a JSX of type `React.JSX.Element | React.ReactNode`
@@ -132,8 +135,9 @@ declare module "react" {
    * export default RootLayout;
    * ```
    *
+   * @property props interface that has `children` property of type `React.JSX.Element | React.ReactNode`
    * @returns React.JSX.Element | React.ReactNode
    * @since v1.0.0
    */
-  type SFLC = (props: Children) => React.JSX.Element | React.ReactNode;
+  type SFLC = (props: ChildrenProps) => React.JSX.Element | React.ReactNode;
 }
