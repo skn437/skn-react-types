@@ -1,7 +1,7 @@
 {
   "name": "@best-skn/react-types",
   "description": "A Simple Type Definition Extension Library For React.js 18",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "",
   "types": "index.d.ts",
   "files": [
